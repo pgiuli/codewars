@@ -1,2 +1,3 @@
-# activitats-classe
-Repositori amb les activitats de la classe: Programació i Robòtica
+# Activitats Code Wars 2023
+Repositori amb les activitats del concurs Code Wars 2023.
+
