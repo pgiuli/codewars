@@ -1,5 +1,8 @@
 initialnum = int(input('Enter the initial number (n>1): '))
 
+if initialnum < 1:
+    raise ValueError
+
 num = initialnum
 
 steps = 0
