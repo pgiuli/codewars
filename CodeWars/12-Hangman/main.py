@@ -1,34 +1,36 @@
-word = input('Enter the word to be guessed: ')
-
+word = input('Enter the word to be guessed: ').upper()
+tried_string = input('Enter letters to guess: ').upper()
 lives = 7
-#print(lives)
-guessed_letters = []
-missing_letters = []
 
+word_letters = []
 for i in word:
-    missing_letters.append(i)
+    word_letters.append(i)
+tried_letters = []
+for i in tried_string:
+    tried_letters.append(i)
 
-def remove_items(test_list, item): 
-    res = [i for i in test_list if i != item] 
-    return res 
 
-#TODO: Prevent repetition
+print('_' * len(word))
 
-#print(missing_letters)
-while missing_letters.__len__() != 0 and lives > 0:
-    guess_letter = input('Enter a letter: ')
-    guessed_letters.append(guess_letter)
-    #print(guess_letter)
-    if guess_letter in missing_letters:
-        missing_letters = remove_items(missing_letters, guess_letter)
-        print('Correct!')
-        #print(missing_letters)
+result = []
+for letter in tried_letters:
+    if letter not in word_letters:
+        if lives != 0:
+            lives -= 1
+
+for letter in word_letters:
+    if letter in tried_letters:
+        result.append(letter)
     else:
-        lives -= 1
-        print(f'You now have {lives} lives.')
+        result.append('_')
 
-if missing_letters.__len__() == 0:
-    print('You Win!')
+print(''.join(result))
 
-elif lives == 0:
-    print('Game Over')
+if result == word_letters:
+    print('Player wins!')
+elif lives > 0:
+    print('Word not completed and player is still alive.')
+else:
+    print('Player Loses.')
+
+print(f'Lives: {lives}')
