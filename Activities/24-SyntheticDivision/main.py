@@ -27,3 +27,7 @@ print(auxiliars)
 print(residus)
 
 #TODO: Output formatting
+
+line1 = ''
+line1 = ''
+line1 = ''
